@@ -1,28 +1,25 @@
-body {
-    height: 100vh;
-    background: #060AB2;
-    display: flex;
+h1,p {
+    text-align: center;
 }
-.memory-game {
-    width: 640px;
-    height: 640px;
-    display: flex;
-    flex-wrap: wrap;
+
+#memory {
+    background: black;
+    width: 700px;
+    height: 610px;
     margin: auto;
-    perspective: 1000px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 160px);
+    grid-gap: 20px;
+    
 }
-.memory-card {
-    width: calc(25% - 10px);
-    height: calc(33.333% - 10px);
-    position: relative;
-    margin: 5px;
-    transform: scale(1);
-    transform-style: preserve-3d;
-    transition: transform .5s;
+
+img {
+    width: 120px;
+    height: 120px;
+    
 }
-* {
-    padding: 0%;
-    margin: 0%;
-    box-sizing: border-box;
+
+span {
+    height: 190px;
 }
- 
