@@ -1,13 +1,16 @@
 h1,p {
     text-align: center;
 }
+body{
+    background-image: url('../pics/bg.jpeg');
+}
 
 #memory {
-    background: black;
-    width: 700px;
-    height: 610px;
+    background: aqua;
+    width: 500px;
+    height: 410px;
     margin: auto;
-    padding: 20px;
+    padding: 20px;    
     display: grid;
     grid-template-columns: repeat(4, 160px);
     grid-gap: 20px;
@@ -22,4 +25,8 @@ img {
 
 span {
     height: 190px;
+}
+.flip {
+    transform: rotateY(180deg);
+    transition: transform 5s;
 }
