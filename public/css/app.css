@@ -1,7 +1,10 @@
-h1,p {
+h1,
+p,
+h2 {
     text-align: center;
 }
-body{
+
+body {
     margin: 0;
 }
 
@@ -9,52 +12,82 @@ body{
     width: 500px;
     height: 410px;
     margin: auto;
-    padding: 20px;    
+    padding: 20px;
     display: grid;
     grid-template-columns: repeat(4, 160px);
     grid-gap: 20px;
-    
+
 }
 
 img {
     width: 120px;
     height: 120px;
-    
+
+}
+
+#divS1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 span {
     height: 190px;
 }
+
 .flip {
     transform: rotateY(180deg);
     transition: transform 5s;
 }
-#s1{
+
+#s1 {
     width: 100%;
     height: 90vw;
 }
-#s2{
+
+#s2 {
     transition: 0.6s;
     position: absolute;
     top: 140px;
     left: 30%;
     transform: translateX(300%);
 }
-#sTotal{
+
+#sTotal {
     background-size: cover;
-    height:100vh;
+    height: 100vh;
     position: relative;
     overflow: hidden;
 }
-.s2{
-    transform: translateX(0)!important;
+
+#open {
+    margin-left: 2px;
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
-.s1{
-    transform: translateX(300%)!important;
+
+.s2 {
+    transform: translateX(0) !important;
 }
-.totalBack{
-    background-color: red!important;
+
+.s1 {
+    transform: translateX(300%) !important;
 }
-.test{
-    background-image : url('../pics/bg.jpeg');
+
+.totalBack {
+    background-image: url('../pics/ferme2.jpeg');
+}
+
+.test {
+    background-image: url('../pics/fermeeuh.webp');
+}
+
+#t1 {
+    font-size: 70px;
 }

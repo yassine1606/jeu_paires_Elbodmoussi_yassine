@@ -1,7 +1,6 @@
 // Récupère un élément aléatoire du tableau
 let a = [1, 2, 3, 1, 2, 3]
 a.sort(() => Math.random() - 0.5);
-
 let pics = document.getElementsByTagName('img');
 let eltScore = document.getElementById('score');
 let score = 0;
@@ -11,22 +10,29 @@ let stock1;
 let stock2;
 let timer = null;
 let src2;
-
+let affPseudo = document.getElementById('affPseudo');
+let pseudo = document.getElementById('pseudo')
 let s1 = document.getElementById('s1')
 let s2 = document.getElementById('s2')
 let open = document.getElementById('open')
-
 let total = document.getElementById('sTotal')
 
+
+
+
+
+// quand on clique sur le bouton
 open.addEventListener('click',()=>{
     s2.classList.add('s2')
     s1.classList.add('s1')
     total.classList.remove('test')
     total.classList.add('totalBack')
+    affPseudo.textContent = pseudo.value;
+    demarrerChrono();
 })
 
 
-
+// change d'image : spr1,2 jusqu'a la fin des images
 for (let i = 0; i < pics.length; i++) {
     pics[i].src2 = './public/pics/spr' + a[i] + '.png';
 }
@@ -43,6 +49,7 @@ document.addEventListener('click', function (element) {
                 element.target.src = element.target.src2;
                 stock1 = element.target;
                 etape = 2;
+                
             }
             break;
         case 2:
@@ -52,7 +59,6 @@ document.addEventListener('click', function (element) {
                 stock2 = element.target;
                 etape = 3;
             }
-            // quand step = 3, ça appelle la fonction check();
             break;
         case 3:
             check();
@@ -70,7 +76,7 @@ function check() {
         stock2.replaceWith(document.createElement('span'))
         score += 50;
     }
-    // sinon on remet le point d'interrogation
+    // sinon on remet le point d'interrogation sur stock1 et stock2
     else {
         stock2.src = stock1.src = './public/pics/interro2.jpeg';
         score -= 30;
@@ -78,7 +84,24 @@ function check() {
     }
     etape = 1;
     eltScore.textContent = score;
-    if (document.getElementsByClassName('img').length == 0) {
-        score.textContent += 'gagné';
-    }
+
+    finChrono();
+
+}
+let debutChrono;
+
+function demarrerChrono() {
+debutChrono = new Date();
+}
+
+function finChrono() {
+let finChrono = new Date();
+let tempsEcoule = finChrono - debutChrono; //en ms
+// enlever les ms
+tempsEcoule /= 1000;
+// obtenir les secondes
+let secondes = Math.round(tempsEcoule);
+console.log("Temps écoulé pour finir le jeu: " + secondes + " secondes.");
+let affichageTemps = document.getElementById("affichageTemps");
+affichageTemps.textContent = "Temps écoulé : " + secondes + " secondes.";
 }
