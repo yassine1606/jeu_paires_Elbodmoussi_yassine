@@ -8,7 +8,6 @@ let etape = 1;
 // stockage des images
 let stock1;
 let stock2;
-let timer = null;
 let src2;
 let affPseudo = document.getElementById('affPseudo');
 let pseudo = document.getElementById('pseudo')
