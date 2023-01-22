@@ -4,6 +4,7 @@ a.sort(() => Math.random() - 0.5);
 let pics = document.getElementsByTagName('img');
 let eltScore = document.getElementById('score');
 let score = 0;
+// sert à suivre l'étape actuelle dans le déroulement du jeu
 let etape = 1;
 // stockage des images
 let stock1;
@@ -21,7 +22,7 @@ let total = document.getElementById('sTotal')
 
 
 // quand on clique sur le bouton
-open.addEventListener('click',()=>{
+open.addEventListener('click', () => {
     s2.classList.add('s2')
     s1.classList.add('s1')
     total.classList.remove('test')
@@ -37,18 +38,22 @@ for (let i = 0; i < pics.length; i++) {
 }
 
 document.addEventListener('click', function (element) {
-    
+// quand etape = 1 la première image cliquée est stockée dans la variable stock1
+// quand etape = 2 la deuxieme image cliquée est stockée dans la variable stock2
+// quand etape vaut 3 la fonction check est appelée pour vérifier si les deux images stockées sont les mêmes
+
     switch (etape) {
         // le joueur clique sur une premiere image
         // lorsqu'on clique sur une image ça la stock dans un p
 
         case 1:
+            // element .target récupère l'élément qui a déclenché le click
+            // si on a cliqué sur un tag name img alors il rentre dans la condition
             // identifie le type
             if (element.target.tagName == 'IMG') {
                 element.target.src = element.target.src2;
                 stock1 = element.target;
                 etape = 2;
-                
             }
             break;
         case 2:
@@ -84,23 +89,24 @@ function check() {
     etape = 1;
     eltScore.textContent = score;
 
+
     finChrono();
 
 }
 let debutChrono;
 
 function demarrerChrono() {
-debutChrono = new Date();
+    debutChrono = new Date();
 }
 
 function finChrono() {
-let finChrono = new Date();
-let tempsEcoule = finChrono - debutChrono; //en ms
-// enlever les ms
-tempsEcoule /= 1000;
-// obtenir les secondes
-let secondes = Math.round(tempsEcoule);
-console.log("Temps écoulé pour finir le jeu: " + secondes + " secondes.");
-let affichageTemps = document.getElementById("affichageTemps");
-affichageTemps.textContent = "Temps écoulé : " + secondes + " secondes.";
+    let finChrono = new Date();
+    let tempsEcoule = finChrono - debutChrono; //en ms
+    // enlever les ms
+    tempsEcoule /= 1000;
+    // obtenir les secondes
+    let secondes = Math.round(tempsEcoule);
+    console.log("Temps écoulé pour finir le jeu: " + secondes + " secondes.");
+    let affichageTemps = document.getElementById("affichageTemps");
+    affichageTemps.textContent = "Temps écoulé : " + secondes + " secondes.";
 }
