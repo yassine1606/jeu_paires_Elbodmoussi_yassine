@@ -32,9 +32,9 @@ open.addEventListener('click', () => {
 })
 
 
-// change d'image : spr1,2 jusqu'a la fin des images
+// change d'image : img1,2 jusqu'a la fin des images
 for (let i = 0; i < pics.length; i++) {
-    pics[i].src2 = './public/pics/spr' + a[i] + '.png';
+    pics[i].src2 = './public/pics/img' + a[i] + '.png';
 }
 
 document.addEventListener('click', function (element) {
