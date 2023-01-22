@@ -7,13 +7,29 @@ let eltScore = document.getElementById('score');
 let score = 0;
 let etape = 1;
 // stockage des images
-let p1, p2;
+let stock1;
+let stock2;
 let timer = null;
+let src2;
+
+let s1 = document.getElementById('s1')
+let s2 = document.getElementById('s2')
+let open = document.getElementById('open')
+
+let total = document.getElementById('sTotal')
+
+open.addEventListener('click',()=>{
+    s2.classList.add('s2')
+    s1.classList.add('s1')
+    total.classList.remove('test')
+    total.classList.add('totalBack')
+})
+
+
 
 for (let i = 0; i < pics.length; i++) {
     pics[i].src2 = './public/pics/spr' + a[i] + '.png';
 }
-
 
 document.addEventListener('click', function (element) {
     
@@ -25,7 +41,7 @@ document.addEventListener('click', function (element) {
             // identifie le type
             if (element.target.tagName == 'IMG') {
                 element.target.src = element.target.src2;
-                p1 = element.target;
+                stock1 = element.target;
                 etape = 2;
             }
             break;
@@ -33,7 +49,7 @@ document.addEventListener('click', function (element) {
             // le joueur clique sur une 2eme image
             if (element.target.tagName == 'IMG') {
                 element.target.src = element.target.src2;
-                p2 = element.target;
+                stock2 = element.target;
                 etape = 3;
             }
             // quand step = 3, ça appelle la fonction check();
@@ -47,17 +63,17 @@ document.addEventListener('click', function (element) {
             break;
     }
 })
-// si p1 = a p2 alors on va le remplacer par une span vide
+// si stock1 = a stock2 alors on va le remplacer par une span vide
 function check() {
-    if (p1.src2 == p2.src2) {
-        p1.replaceWith(document.createElement('span'))
-        p2.replaceWith(document.createElement('span'))
+    if (stock1.src2 == stock2.src2) {
+        stock1.replaceWith(document.createElement('span'))
+        stock2.replaceWith(document.createElement('span'))
         score += 50;
     }
     // sinon on remet le point d'interrogation
     else {
-        p2.src = p1.src = './public/pics/interro2.jpeg';
-        score = Math.max(0, score - 30);
+        stock2.src = stock1.src = './public/pics/interro2.jpeg';
+        score -= 30;
 
     }
     etape = 1;
